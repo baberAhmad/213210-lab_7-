@@ -1,0 +1,203 @@
+
+
+
+      Examples Lab : 07
+
+    //   Text label
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_7_Example_
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            label1.Text = "This is My first Form";
+        }
+    }
+}
+
+     //  Button Image 
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_7_Example_
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Text = "Click Here";
+           button1.Image = Image.FromFile("C:\\testimage.jpg");
+        }
+    }
+}
+
+     // Combo Box
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_7_Example_
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.Items.Add("Monday");
+            comboBox1.Items.Add("Tuesday");
+            comboBox1.Items.Add("Wednesday");
+            comboBox1.Items.Add("Thursday");
+            comboBox1.Items.Add("Friday");
+            comboBox1.Items.Add("saturday");
+            comboBox1.Items.Add("Sunday");
+
+            var item = this.comboBox1.GetItemText(this.comboBox1.SelectedItem);
+            MessageBox.Show(item);
+        }
+    }
+}
+
+      // Radio button
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_7_Example_
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            radioButton1.Checked = true;
+            radioButton2.Checked = true;
+            radioButton3.Checked = true;
+
+            button1.Text = "Your Selected Color";
+        }
+    }
+}
+
+    Exercise : 07 
+
+Q1:
+
+ 
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Lab_7_Example_
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            operations(Addoperations);
+        }
+
+        private void operations(Func<double, double, double > operations)
+        {
+            double num1 = double.Parse(textBox1.Text);
+            double num2 = double.Parse(textBox2.Text);
+            double result = operations(num1, num2);
+            textBox3.Text =  result.ToString();
+        }
+
+        private double Addoperations(double num1, double num2)
+        {
+            return num1 + num2;
+        }
+
+        private double Suboperations(double num1, double num2)
+        {
+            return num1 - num2;
+        }
+
+        private double muloperations(double num1, double num2)
+        {
+            return num1 * num2;
+        }
+
+        private double divoperations(double num1, double num2)
+        {
+            return num1 / num2;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            operations(Suboperations);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            operations(muloperations);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            operations(divoperations);
+        }
+    }
+}
